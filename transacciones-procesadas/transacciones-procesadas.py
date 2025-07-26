@@ -6,8 +6,6 @@ from awsglue.context import GlueContext
 from awsglue.job import Job
 from pyspark.sql.functions import *
 
-# --- Inicialización ---
-# No es necesario 'args' para este script simple, pero es buena práctica mantenerlo
 args = getResolvedOptions(sys.argv, ['JOB_NAME'])
 sc = SparkContext()
 glueContext = GlueContext(sc)
@@ -16,8 +14,6 @@ job = Job(glueContext)
 job.init(args['JOB_NAME'], args)
 
 # --- 1. Leer datos de S3 con el delimitador correcto ---
-# ## CORRECCIÓN 1: Se añade .option("delimiter", ";") para que Spark sepa cómo separar las columnas.
-# Esto evita que lea "nombre_proveedor;tipo_energia" como una sola columna.
 df_raw = spark.read \
     .option("header", "true") \
     .option("delimiter", ";") \
