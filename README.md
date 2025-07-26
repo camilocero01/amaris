@@ -25,6 +25,8 @@ se propone la siguiente estructura
 -----month=07/
 ------day=25/
 
+![alt text]({A973BBD7-5B7D-45AA-95AE-1DFCCCE38E35}.png)
+
 ### 2. creación de Roles
 se crean dos roles
 
@@ -53,7 +55,9 @@ Procesamiento_proveedor https://github.com/camilocero01/amaris/tree/main/Procesa
 Se hace la  creación de crawler para automatizar y procesar los datos
 Se crean dos crawler, uno para los datos raw (energy-raw-crawler-v2) y otro para los datos procesados (energy-raw-crawler-v2)
 
-También se crea lambda energy-data-ingestion 
+También se crea lambda energy-data-ingestion se deja código de la función https://github.com/camilocero01/amaris/blob/main/lambda_function.py
+
+
  
 
 
