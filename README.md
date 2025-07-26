@@ -43,16 +43,18 @@ para la estrategía se proponen dos bases de datos, una para datos raw (energy_r
 ## PUNTO 2
 Se crean 3 jobs de ejemplo de transformación de datos, se guardan en formato parket en la bd energy_processed_db
 
-Clientes-procesados
-transacciones-procesadas
-Procesamiento_proveedor
+Clientes-procesados https://github.com/camilocero01/amaris/tree/main/procesamiento_clientes
+transacciones-procesadas https://github.com/camilocero01/amaris/tree/main/transacciones-procesadas
+Procesamiento_proveedor https://github.com/camilocero01/amaris/tree/main/Procesamiento_proveedor
 
-Se puede revisar el código de los jobs programados en github
-https://github.com/camilocero01/amaris/
+
 
 ## PUNTO 3
 Se hace la  creación de crawler para automatizar y procesar los datos
 Se crean dos crawler, uno para los datos raw (energy-raw-crawler-v2) y otro para los datos procesados (energy-raw-crawler-v2)
+
+También se crea lambda energy-data-ingestion 
+ 
 
 
 
