@@ -66,7 +66,7 @@ PENDIENTEE
 Se usa CloudFormation, se realiza análisis y se genera IaC https://github.com/camilocero01/amaris/blob/main/Plantilla-amaris-template-1753560571699.yaml
 
 
-
+```mermaid
 graph TD
     subgraph "Fuentes de Datos"
         A[Aplicación del Usuario <br>(Móvil/Web)]
@@ -106,7 +106,7 @@ graph TD
         O -- "Desencadena envío" --> P[Amazon Pinpoint];
         P -- "Envía notificación Push personalizada" --> Q[Dispositivo del Usuario];
     end
-
+```
 
  
 
