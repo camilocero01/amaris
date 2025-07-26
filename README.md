@@ -25,8 +25,6 @@ se propone la siguiente estructura
 -----month=07/
 ------day=25/
 
-![alt text]({A973BBD7-5B7D-45AA-95AE-1DFCCCE38E35}.png)
-
 ### 2. creación de Roles
 se crean dos roles
 
@@ -41,6 +39,8 @@ para la configuración de las lambdas con los permisos sobre AWSLambdaBasicExecu
 ### 3. creación de Bases de datos
 para la estrategía se proponen dos bases de datos, una para datos raw (energy_raw_db) y otro para datos procesados (energy_processed_db)
 
+Al final la estructura la estratégia permite realizar el particionamiento por la fecha de carga
+![alt text]({C39BA267-C651-4865-B2F1-75961D4727DF}.png)
 
 ## PUNTO 2
 Se crean 3 jobs de ejemplo de transformación de datos, se guardan en formato parket en la bd energy_processed_db
@@ -49,7 +49,8 @@ Clientes-procesados https://github.com/camilocero01/amaris/tree/main/procesamien
 transacciones-procesadas https://github.com/camilocero01/amaris/tree/main/transacciones-procesadas
 Procesamiento_proveedor https://github.com/camilocero01/amaris/tree/main/Procesamiento_proveedor
 
-
+Se deja ejemplo del resultado final con la data procesada en archivos parquet
+![alt text]({865A1F1F-5C1F-49E1-8ADA-889DA94BC72B}.png)
 
 ## PUNTO 3
 Se hace la  creación de crawler para automatizar y procesar los datos
