@@ -1,0 +1,405 @@
+---
+Metadata:
+  AWSToolsMetrics:
+    IaC_Generator: "arn:aws:cloudformation:us-east-2:643327308023:generatedTemplate/7a4df443-0180-40b9-8016-5e1c05f1b90a"
+Parameters:
+  LambdaFunctionPruebaCodeS3ObjectVersionxCNox:
+    NoEcho: "true"
+    Type: "String"
+    Description: "For versioned objects, the version of the deployment package object\
+      \ to use."
+  LambdaFunctionPruebaCodeS3BucketwufX5:
+    NoEcho: "true"
+    Type: "String"
+    Description: "An Amazon S3 bucket in the same AWS-Region as your function. The\
+      \ bucket can be in a different AWS-account."
+  LambdaFunctionPruebaCodeS3KeycWY1P:
+    NoEcho: "true"
+    Type: "String"
+    Description: "The Amazon S3 key of the deployment package."
+  LambdaFunctionEnergydataingestionCodeS3Bucketf3wd8:
+    NoEcho: "true"
+    Type: "String"
+    Description: "An Amazon S3 bucket in the same AWS-Region as your function. The\
+      \ bucket can be in a different AWS-account."
+  LambdaFunctionPruebaCodeZipFileaIube:
+    NoEcho: "true"
+    Type: "String"
+    Description: "(Node.js and Python) The source code of your Lambda function. If\
+      \ you include your function source inline with this parameter, CFN places it\
+      \ in a file named ``index`` and zips it to create a [deployment package](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html).\
+      \ This zip file cannot exceed 4MB. For the ``Handler`` property, the first part\
+      \ of the handler identifier must be ``index``. For example, ``index.handler``.\n\
+      \  When you specify source code inline for a Node.js function, the ``index``\
+      \ file that CFN creates uses the extension ``.js``. This means that LAM treats\
+      \ the file as a CommonJS module. ES modules aren't supported for inline functions.\n\
+      \   For JSON, you must escape quotes and special characters such as newline\
+      \ (``\\n``) with a backslash.\n If you specify a function that interacts with\
+      \ an AWS CloudFormation custom resource, you don't have to write your own functions\
+      \ to send responses to the custom resource that invoked the function. AWS CloudFormation\
+      \ provides a response module ([cfn-response](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-lambda-function-code-cfnresponsemodule.html))\
+      \ that simplifies sending responses. See [Using Lambda with CloudFormation](https://docs.aws.amazon.com/lambda/latest/dg/services-cloudformation.html)\
+      \ for details."
+  LambdaFunctionEnergydataingestionCodeImageUrioAL9H:
+    NoEcho: "true"
+    Type: "String"
+    Description: "URI of a [container image](https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html)\
+      \ in the Amazon ECR registry."
+  LambdaFunctionPruebaCodeImageUriiBT4u:
+    NoEcho: "true"
+    Type: "String"
+    Description: "URI of a [container image](https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html)\
+      \ in the Amazon ECR registry."
+  LambdaFunctionEnergydataingestionCodeZipFileTzlxV:
+    NoEcho: "true"
+    Type: "String"
+    Description: "(Node.js and Python) The source code of your Lambda function. If\
+      \ you include your function source inline with this parameter, CFN places it\
+      \ in a file named ``index`` and zips it to create a [deployment package](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html).\
+      \ This zip file cannot exceed 4MB. For the ``Handler`` property, the first part\
+      \ of the handler identifier must be ``index``. For example, ``index.handler``.\n\
+      \  When you specify source code inline for a Node.js function, the ``index``\
+      \ file that CFN creates uses the extension ``.js``. This means that LAM treats\
+      \ the file as a CommonJS module. ES modules aren't supported for inline functions.\n\
+      \   For JSON, you must escape quotes and special characters such as newline\
+      \ (``\\n``) with a backslash.\n If you specify a function that interacts with\
+      \ an AWS CloudFormation custom resource, you don't have to write your own functions\
+      \ to send responses to the custom resource that invoked the function. AWS CloudFormation\
+      \ provides a response module ([cfn-response](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-lambda-function-code-cfnresponsemodule.html))\
+      \ that simplifies sending responses. See [Using Lambda with CloudFormation](https://docs.aws.amazon.com/lambda/latest/dg/services-cloudformation.html)\
+      \ for details."
+  LambdaFunctionEnergydataingestionCodeS3ObjectVersionO1Iy6:
+    NoEcho: "true"
+    Type: "String"
+    Description: "For versioned objects, the version of the deployment package object\
+      \ to use."
+  LambdaFunctionEnergydataingestionCodeS3KeypClDr:
+    NoEcho: "true"
+    Type: "String"
+    Description: "The Amazon S3 key of the deployment package."
+Resources:
+  IAMUserCamilo:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::IAM::User"
+    DeletionPolicy: "Retain"
+    Properties:
+      Path: "/"
+      ManagedPolicyArns:
+      - "arn:aws:iam::aws:policy/AWSGlueConsoleFullAccess"
+      - "arn:aws:iam::aws:policy/AmazonAthenaFullAccess"
+      UserName: "camilo"
+      LoginProfile:
+        PasswordResetRequired: false
+      Tags:
+      - Value: "acceso aim"
+        Key: "AKIAZLSKLWD3SLBDQKEV"
+  LambdaFunctionPrueba:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::Lambda::Function"
+    DeletionPolicy: "Retain"
+    Properties:
+      MemorySize: 128
+      Description: ""
+      TracingConfig:
+        Mode: "PassThrough"
+      Timeout: 3
+      RuntimeManagementConfig:
+        UpdateRuntimeOn: "Auto"
+      Handler: "lambda_function.lambda_handler"
+      Code:
+        S3ObjectVersion:
+          Ref: "LambdaFunctionPruebaCodeS3ObjectVersionxCNox"
+        S3Bucket:
+          Ref: "LambdaFunctionPruebaCodeS3BucketwufX5"
+        ZipFile:
+          Ref: "LambdaFunctionPruebaCodeZipFileaIube"
+        ImageUri:
+          Ref: "LambdaFunctionPruebaCodeImageUriiBT4u"
+        S3Key:
+          Ref: "LambdaFunctionPruebaCodeS3KeycWY1P"
+      Role:
+        Fn::GetAtt:
+        - "IAMRolePruebaroleipipppb3"
+        - "Arn"
+      FileSystemConfigs: []
+      FunctionName: "prueba"
+      Runtime: "python3.13"
+      PackageType: "Zip"
+      LoggingConfig:
+        LogFormat: "Text"
+        LogGroup: "/aws/lambda/prueba"
+      RecursiveLoop: "Terminate"
+      EphemeralStorage:
+        Size: 512
+      Architectures:
+      - "x86_64"
+  IAMRoleEnergydataingestionrolezpt5ev6j:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::IAM::Role"
+    DeletionPolicy: "Retain"
+    Properties:
+      Path: "/service-role/"
+      ManagedPolicyArns:
+      - Ref: "IAMManagedPolicyPolicyserviceroleAWSLambdaBasicExecutionRolec10275ac576248129a3821420ef9b66d"
+      MaxSessionDuration: 3600
+      RoleName: "energy-data-ingestion-role-zpt5ev6j"
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+        - Action: "sts:AssumeRole"
+          Effect: "Allow"
+          Principal:
+            Service: "lambda.amazonaws.com"
+  LambdaFunctionEnergydataingestion:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::Lambda::Function"
+    DeletionPolicy: "Retain"
+    Properties:
+      MemorySize: 128
+      Description: ""
+      TracingConfig:
+        Mode: "PassThrough"
+      Timeout: 3
+      RuntimeManagementConfig:
+        UpdateRuntimeOn: "Auto"
+      Handler: "lambda_function.lambda_handler"
+      Code:
+        S3ObjectVersion:
+          Ref: "LambdaFunctionEnergydataingestionCodeS3ObjectVersionO1Iy6"
+        S3Bucket:
+          Ref: "LambdaFunctionEnergydataingestionCodeS3Bucketf3wd8"
+        ZipFile:
+          Ref: "LambdaFunctionEnergydataingestionCodeZipFileTzlxV"
+        ImageUri:
+          Ref: "LambdaFunctionEnergydataingestionCodeImageUrioAL9H"
+        S3Key:
+          Ref: "LambdaFunctionEnergydataingestionCodeS3KeypClDr"
+      Role:
+        Fn::GetAtt:
+        - "IAMRoleLambdaRoleAmaris"
+        - "Arn"
+      FileSystemConfigs: []
+      FunctionName: "energy-data-ingestion"
+      Runtime: "python3.13"
+      PackageType: "Zip"
+      LoggingConfig:
+        LogFormat: "Text"
+        LogGroup: "/aws/lambda/energy-data-ingestion"
+      RecursiveLoop: "Terminate"
+      EphemeralStorage:
+        Size: 512
+      Architectures:
+      - "x86_64"
+  IAMRoleAWSServiceRoleForTrustedAdvisor:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::IAM::Role"
+    DeletionPolicy: "Retain"
+    Properties:
+      Path: "/aws-service-role/trustedadvisor.amazonaws.com/"
+      ManagedPolicyArns:
+      - "arn:aws:iam::aws:policy/aws-service-role/AWSTrustedAdvisorServiceRolePolicy"
+      MaxSessionDuration: 3600
+      RoleName: "AWSServiceRoleForTrustedAdvisor"
+      Description: "Access for the AWS Trusted Advisor Service to help reduce cost,\
+        \ increase performance, and improve security of your AWS environment."
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+        - Action: "sts:AssumeRole"
+          Effect: "Allow"
+          Principal:
+            Service: "trustedadvisor.amazonaws.com"
+  IAMManagedPolicyPolicyserviceroleAWSLambdaBasicExecutionRolede953792c4544e19bb0f973ddb7dbcb5:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::IAM::ManagedPolicy"
+    DeletionPolicy: "Retain"
+    Properties:
+      ManagedPolicyName: "AWSLambdaBasicExecutionRole-de953792-c454-4e19-bb0f-973ddb7dbcb5"
+      Path: "/service-role/"
+      Description: ""
+      Groups: []
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+        - Resource: "arn:aws:logs:us-east-2:643327308023:*"
+          Action: "logs:CreateLogGroup"
+          Effect: "Allow"
+        - Resource:
+          - "arn:aws:logs:us-east-2:643327308023:log-group:/aws/lambda/prueba:*"
+          Action:
+          - "logs:CreateLogStream"
+          - "logs:PutLogEvents"
+          Effect: "Allow"
+      Roles:
+      - "prueba-role-ipipppb3"
+      Users: []
+  LambdaVersionFunctionenergydataingestion1:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::Lambda::Version"
+    DeletionPolicy: "Retain"
+    Properties:
+      FunctionName:
+        Ref: "LambdaFunctionEnergydataingestion"
+      Description: ""
+      RuntimePolicy:
+        UpdateRuntimeOn: "Auto"
+      CodeSha256: "1kXEu4JcJL9vUecoB7C9mPp6iThsZBKwNejoBc2DbCY="
+  IAMRolePruebaroleipipppb3:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::IAM::Role"
+    DeletionPolicy: "Retain"
+    Properties:
+      Path: "/service-role/"
+      ManagedPolicyArns:
+      - Ref: "IAMManagedPolicyPolicyserviceroleAWSLambdaBasicExecutionRolede953792c4544e19bb0f973ddb7dbcb5"
+      MaxSessionDuration: 3600
+      RoleName: "prueba-role-ipipppb3"
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+        - Action: "sts:AssumeRole"
+          Effect: "Allow"
+          Principal:
+            Service: "lambda.amazonaws.com"
+  IAMManagedPolicyPolicyserviceroleAWSLambdaBasicExecutionRolec10275ac576248129a3821420ef9b66d:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::IAM::ManagedPolicy"
+    DeletionPolicy: "Retain"
+    Properties:
+      ManagedPolicyName: "AWSLambdaBasicExecutionRole-c10275ac-5762-4812-9a38-21420ef9b66d"
+      Path: "/service-role/"
+      Description: ""
+      Groups: []
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+        - Resource: "arn:aws:logs:us-east-2:643327308023:*"
+          Action: "logs:CreateLogGroup"
+          Effect: "Allow"
+        - Resource:
+          - "arn:aws:logs:us-east-2:643327308023:log-group:/aws/lambda/energy-data-ingestion:*"
+          Action:
+          - "logs:CreateLogStream"
+          - "logs:PutLogEvents"
+          Effect: "Allow"
+      Roles:
+      - "energy-data-ingestion-role-zpt5ev6j"
+      Users: []
+  S3BucketDatalakeenergycompanycamilo:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::S3::Bucket"
+    DeletionPolicy: "Retain"
+    Properties:
+      PublicAccessBlockConfiguration:
+        RestrictPublicBuckets: true
+        IgnorePublicAcls: true
+        BlockPublicPolicy: true
+        BlockPublicAcls: true
+      BucketName: "datalake-energy-company-camilo"
+      OwnershipControls:
+        Rules:
+        - ObjectOwnership: "BucketOwnerEnforced"
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+        - BucketKeyEnabled: true
+          ServerSideEncryptionByDefault:
+            SSEAlgorithm: "AES256"
+  IAMRoleRolglue:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::IAM::Role"
+    DeletionPolicy: "Retain"
+    Properties:
+      Path: "/"
+      ManagedPolicyArns:
+      - "arn:aws:iam::aws:policy/AWSBackupServiceRolePolicyForS3Backup"
+      - "arn:aws:iam::aws:policy/AWSBackupServiceRolePolicyForS3Restore"
+      - "arn:aws:iam::aws:policy/service-role/QuickSightAccessForS3StorageManagementAnalyticsReadOnly"
+      - "arn:aws:iam::aws:policy/service-role/AmazonDMSRedshiftS3Role"
+      - "arn:aws:iam::aws:policy/AWSQuickSetupSSMDeploymentS3BucketRolePolicy"
+      - "arn:aws:iam::aws:policy/service-role/AWSGlueServiceRole"
+      MaxSessionDuration: 3600
+      RoleName: "rol_glue"
+      Description: "Allows Glue to call AWS services on your behalf. "
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+        - Action: "sts:AssumeRole"
+          Effect: "Allow"
+          Principal:
+            Service: "glue.amazonaws.com"
+  IAMRoleGlueRoleAmaris:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::IAM::Role"
+    DeletionPolicy: "Retain"
+    Properties:
+      Path: "/"
+      ManagedPolicyArns:
+      - "arn:aws:iam::aws:policy/AmazonS3FullAccess"
+      - "arn:aws:iam::aws:policy/service-role/AWSGlueServiceRole"
+      MaxSessionDuration: 3600
+      RoleName: "Glue-Role-Amaris"
+      Description: "Rol de glue para prueba amaris"
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+        - Action: "sts:AssumeRole"
+          Effect: "Allow"
+          Principal:
+            Service: "glue.amazonaws.com"
+  IAMRoleLambdaRoleAmaris:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::IAM::Role"
+    DeletionPolicy: "Retain"
+    Properties:
+      Path: "/"
+      ManagedPolicyArns:
+      - "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+      - "arn:aws:iam::aws:policy/AmazonS3FullAccess"
+      MaxSessionDuration: 3600
+      RoleName: "Lambda-Role-Amaris"
+      Description: "Roles de lambda para prueba amaris"
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+        - Action: "sts:AssumeRole"
+          Effect: "Allow"
+          Principal:
+            Service: "lambda.amazonaws.com"
+  S3BucketSourceenergycompanycamilo:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::S3::Bucket"
+    DeletionPolicy: "Retain"
+    Properties:
+      PublicAccessBlockConfiguration:
+        RestrictPublicBuckets: true
+        IgnorePublicAcls: true
+        BlockPublicPolicy: true
+        BlockPublicAcls: true
+      BucketName: "source-energy-company-camilo"
+      OwnershipControls:
+        Rules:
+        - ObjectOwnership: "BucketOwnerEnforced"
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+        - BucketKeyEnabled: true
+          ServerSideEncryptionByDefault:
+            SSEAlgorithm: "AES256"
+  IAMRoleAWSServiceRoleForSupport:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::IAM::Role"
+    DeletionPolicy: "Retain"
+    Properties:
+      Path: "/aws-service-role/support.amazonaws.com/"
+      ManagedPolicyArns:
+      - "arn:aws:iam::aws:policy/aws-service-role/AWSSupportServiceRolePolicy"
+      MaxSessionDuration: 3600
+      RoleName: "AWSServiceRoleForSupport"
+      Description: "Enables resource access for AWS to provide billing, administrative\
+        \ and support services"
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+        - Action: "sts:AssumeRole"
+          Effect: "Allow"
+          Principal:
+            Service: "support.amazonaws.com"
