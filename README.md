@@ -100,11 +100,13 @@ Inventigando un poco se recomienda:
 
 ## Pregunta 4
 ¿Qué beneficios y desventajas ves al utilizar AWS Glue en comparación con Lambda o Step Functions para orquestación ETL?
+
 **AWS Glue Ventjas:**
 * Es serverless
 * Escalamiento automático
 * Fácil integración entre s3, RDS y redshift
 * Manejo de bigdata
+
 **AWS Glue desventajas:**
 * Al ser serverless, el arranque es frio, siendo lento para iniciar
 * Limitaciones en lenguajes de programación (python y escala)
@@ -116,6 +118,7 @@ Inventigando un poco se recomienda:
 * Arranque rápido
 * Integración amplia por triggers
 * Más facil de debugger al poderse integrar con herramientas de desarrollo
+
 **Lambda desventajas:**
 * Limitado en recursos como topes en memoria y en tiempos máximo de ejecución
 * Todo lo opuesto a glue, al no esta optimizado para bigdata, funciona mejor con ejecuciones cortas de pocos datos o en tiempo real.
@@ -125,6 +128,7 @@ Inventigando un poco se recomienda:
 * Alta tolerancia a fallos
 * Integración nativa con servicios de AWS
 * Auditoria completa
+
 **Step Functions desventajas:**
 * No procesa datos directamente, depende de otros servicios para procesar
 * Complejo de configurar
