@@ -58,16 +58,20 @@ Se crean dos crawler, uno para los datos raw (energy-raw-crawler-v2) y otro para
 
 También se crea lambda energy-data-ingestion se deja código de la función https://github.com/camilocero01/amaris/blob/main/lambda_function.py
 
-## PUNTO 4
-PENDIENTEE
+## PUNTO 4 Uso de athena para consultas sql
+
+Para la prueba habilite una cuenta free de AWS, me encuentro que Athena esta restringido para la cuenta free, ya realice la solicitud de acceso a Athena pero aun no me lo habilitan, apenas tenga habilitado, termino este punto. Por ahora prefiero hacer entrega parcial y si hay más tiempo, entregaré esta parte.
 
 ## PUNTO ADICIONAL 1 CREACIÓN DE IAC
 
 Se usa CloudFormation, se realiza análisis y se genera IaC https://github.com/camilocero01/amaris/blob/main/Plantilla-amaris-template-1753560571699.yaml
 
+## PUNTO ADICIONAL 3 migrar a redshift
+Intención de realizar, pendiente implementar
+
 # Ejercicio 2
 
-PENDIENTE
+Como he comentado en varios puntos, no he tenido la oportunidad de trabajar en la nube de AWS y aunque he desplegado en otras nubes ambientes, mi enfoque es muy fuerte hacia la ingenieria de datos en ambientes ya desplegados, para este punto requiero un poco de tiempo para investigar a conciencia sobre el punto propuesto y no se si tengo más tiempo, propongo enviar parcialmente lo que tengo y validar con ustedes cuanto tiempo más tengo para la entega completa
 
 # Ejercicio 3
 
@@ -134,4 +138,15 @@ Inventigando un poco se recomienda:
 * Complejo de configurar
 * Puede aumentar los costos
 
-e
+## Pregunta 5
+¿Cómo garantizarías la integridad y seguridad de los datos de un datalake construido en Amazon S3?
+
+Las nubes tienen una excelente gestión de seguridad, en los proyectos donde he participado como ingeniero de datos, es curioso como el proceso de habilitación de accesos y permisos a los diferentes recursos es un poco tediosos, por defecto la seguridad en nube viene cerrada y los administradores deben dar los permisos para poder habilitar el acceso a servicios, pero por el otro si no es un buen administrador de nube, también por error puede habilitar y abrir huecos de seguridad.
+ 
+En general para AWS se deben tener en cuenta los siguiente elementos para garantizar la integridad y seguridad:
+
+1. Políticas IAM granulares y uso del principio de menor privilegio. puede ser tedioso pero se recomienda desde el principio dedicar mucho tiempo a la definición y configuración de los roles necesarios para el proyecto
+2. Se recomienda el uso de Lake Formation
+3. REalizar auditorias regulares y realizar pruebas de penetración, he estado en compañias donde se propone jornada de hackaton con el fin de intentar encontrar huecos de seguridad entre áreas y premian con dinero los hallazgos.
+4. Muy importante trabajar en formación de los colaboradores y en temas culturales frente a un buen manejo de la integridad y seguridad de los datos.
+
