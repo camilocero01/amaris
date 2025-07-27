@@ -43,7 +43,7 @@ Al final la estructura la estratégia permite realizar el particionamiento por l
 ![alt text]({C39BA267-C651-4865-B2F1-75961D4727DF}.png)
 
 ## PUNTO 2
-Se crean 3 jobs de ejemplo de transformación de datos, se guardan en formato parket en la bd energy_processed_db
+Se crean 3 jobs de ejemplo de transformación de datos, se guardan en formato parquet en la bd energy_processed_db
 
 * Clientes-procesados https://github.com/camilocero01/amaris/tree/main/procesamiento_clientes
 * transacciones-procesadas https://github.com/camilocero01/amaris/tree/main/transacciones-procesadas
@@ -89,7 +89,7 @@ Mi experiencia ha sido en visualización, gobierno de datos y en mis últimos 3 
 ## Pregunta 3
 ¿Qué consideraciones tomarías al decidir entre almacenar datos en Amazon S3, RDS o Redshift?
 En los contactos que he tenido con el ambientes de nube, siempre presentan varias soluciones para almacenamiento de datos pero se debe tener en cuenta varios factores:
-* ** Volumen **: algunos casi ilimitados mientras que otros con limites
+* **Volumen**: algunos casi ilimitados mientras que otros con limites
 * ** Costos **: algunos con costos bajos y otros con costos altos
 * ** Uso: ** algunos estan optimizados para almacenamientos, otros para transacciones y otros para procesamientos
 
