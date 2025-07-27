@@ -90,8 +90,8 @@ Mi experiencia ha sido en visualización, gobierno de datos y en mis últimos 3 
 ¿Qué consideraciones tomarías al decidir entre almacenar datos en Amazon S3, RDS o Redshift?
 En los contactos que he tenido con el ambientes de nube, siempre presentan varias soluciones para almacenamiento de datos pero se debe tener en cuenta varios factores:
 * **Volumen**: algunos casi ilimitados mientras que otros con limites
-* ** Costos **: algunos con costos bajos y otros con costos altos
-* ** Uso: ** algunos estan optimizados para almacenamientos, otros para transacciones y otros para procesamientos
+* **Costos**: algunos con costos bajos y otros con costos altos
+* **Uso:** algunos estan optimizados para almacenamientos, otros para transacciones y otros para procesamientos
 
 Inventigando un poco se recomienda:
 * s3 como solución más economica mas enfocada a datos brutos y como ambiente de limpieza y preparación de datos, recomendada para almacenamiento de archivos brutos o procesados pero en tipo archivo, no recomendado para hacer analítica avanzada
@@ -100,34 +100,34 @@ Inventigando un poco se recomienda:
 
 ## Pregunta 4
 ¿Qué beneficios y desventajas ves al utilizar AWS Glue en comparación con Lambda o Step Functions para orquestación ETL?
-** AWS Glue Ventjas: **
+**AWS Glue Ventjas:**
 * Es serverless
 * Escalamiento automático
 * Fácil integración entre s3, RDS y redshift
 * Manejo de bigdata
-** AWS Glue desventajas: **
+**AWS Glue desventajas:**
 * Al ser serverless, el arranque es frio, siendo lento para iniciar
 * Limitaciones en lenguajes de programación (python y escala)
 * Menos control y dificil debug 
 * Al estar optmizado para bigdata no es usable para tareas pequeñas
 
-** Lambda Ventjas: **
+**Lambda Ventjas:**
 * Cualquier lenguaje de programación
 * Arranque rápido
 * Integración amplia por triggers
 * Más facil de debugger al poderse integrar con herramientas de desarrollo
-** Lambda desventajas: **
+**Lambda desventajas:**
 * Limitado en recursos como topes en memoria y en tiempos máximo de ejecución
 * Todo lo opuesto a glue, al no esta optimizado para bigdata, funciona mejor con ejecuciones cortas de pocos datos o en tiempo real.
 
-** Step Functions Ventjas: **
+**Step Functions Ventjas:**
 * Orquestación visual
 * Alta tolerancia a fallos
 * Integración nativa con servicios de AWS
 * Auditoria completa
-** Step Functions desventajas: **
+**Step Functions desventajas:**
 * No procesa datos directamente, depende de otros servicios para procesar
 * Complejo de configurar
-* 
+* Puede aumentar los costos
 
 e
