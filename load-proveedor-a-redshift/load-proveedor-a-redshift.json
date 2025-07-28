@@ -13,7 +13,6 @@
   },
   "defaultArguments" : {
     "--enable-metrics" : "true",
-    "--enable-spark-ui" : "true",
     "--spark-event-logs-path" : "s3://aws-glue-assets-643327308023-us-east-2/sparkHistoryLogs/",
     "--enable-job-insights" : "true",
     "--enable-observability-metrics" : "true",
