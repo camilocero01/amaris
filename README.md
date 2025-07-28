@@ -34,6 +34,12 @@ para el uso de glue con los permisoso sobre AWSGlueServiceRole y AmazonS3FullAcc
 * - Lambda-Role-Amaris
 para la configuración de las lambdas con los permisos sobre AWSLambdaBasicExecutionRole y AmazonS3FullAccess
 
+* - Athena-rol-amaris 
+Para el acceso a athena  con los permisos sobre AmazonAthenaFullAccess y AWSGlueConsoleFullAccess
+
+* - redshift-role-amaris 
+Para el acceso a redshift con los permisos de AWSGlueConsoleFullAccess y AmazonS3ReadOnlyAccess
+
 * - para el uso de ATHENA se crea el usuario camilo con los permisos sobre AmazonAthenaFullAccess y AWSGlueConsoleFullAccess
 
 ### 3. creación de Bases de datos
@@ -60,20 +66,69 @@ También se crea lambda energy-data-ingestion se deja código de la función htt
 
 ## PUNTO 4 Uso de athena para consultas sql
 
-Para la prueba habilite una cuenta free de AWS, me encuentro que Athena esta restringido para la cuenta free, ya realice la solicitud de acceso a Athena pero aun no me lo habilitan, apenas tenga habilitado, termino este punto. Por ahora prefiero hacer entrega parcial y si hay más tiempo, entregaré esta parte.
+27/07/2025 Para la prueba habilite una cuenta free de AWS, me encuentro que Athena esta restringido para la cuenta free, ya realice la solicitud de acceso a Athena pero aun no me lo habilitan, apenas tenga habilitado, termino este punto. Por ahora prefiero hacer entrega parcial y si hay más tiempo, entregaré esta parte.
+
+28/07/2025 El día de hoy aun no me han habilitado Athena en la cuenta de AWS, con fin de poder terminar la prueba, migro la cuenta de free a paga y logro tener acceso a athena. A continuación se presentan las 3 consultar de ejemplo
+
+### CONSULTA 1 Conteo de clientes x ciudad
+SELECT ciudad, count(1) conteo 
+FROM clientes
+GROUP BY ciudad
+
+### CONSULTA 2 Conteo de proveedores x tipo energía
+SELECT tipo_energia,
+	count(1) conteo
+FROM proveedores
+GROUP BY tipo_energia
+
+### CONSULTA 3 Comportamiento del promedio x tipo de transacción
+SELECT 
+    tipo_transaccion,
+    COUNT(*) as num_transacciones,
+    AVG(cantidad_comprada_kwh) as kwh_promedio,
+    AVG(precio_kwh_cop) as precio_promedio
+FROM transacciones
+GROUP BY tipo_transaccion;
+
+Se deja evidencia de la ejecución y funcionamiento de Athena
+![alt text]({69DB3C48-802E-482B-9166-B305E1BF9363}.png)
+
 
 ## PUNTO ADICIONAL 1 CREACIÓN DE IAC
-
 Se usa CloudFormation, se realiza análisis y se genera IaC https://github.com/camilocero01/amaris/blob/main/Plantilla-amaris-template-1753560571699.yaml
 
 ## PUNTO ADICIONAL 3 migrar a redshift
-Intención de realizar, pendiente implementar
+
+CREATE SCHEMA dw;
+
+-- Tabla temporal para proveedores
+CREATE TABLE staging.proveedores_staging (
+    tipo_energia VARCHAR(255),
+    nombre_proveedor VARCHAR(255),
+    fecha_registro_parsed VARCHAR(50)
+);
+
+-- Tabla temporal para proveedores
+CREATE TABLE dw.dim_proveedores(
+    tipo_energia VARCHAR(255),
+    nombre_proveedor VARCHAR(255),
+    fecha_registro_parsed VARCHAR(50)
+);
+
+Se deja el código en python que hace la migración en REDSHIFT https://github.com/camilocero01/amaris/tree/main/load-proveedor-a-redshift
 
 # Ejercicio 2
 
 Como he comentado en varios puntos, no he tenido la oportunidad de trabajar en la nube de AWS y aunque he desplegado en otras nubes ambientes, mi enfoque es muy fuerte hacia la ingenieria de datos en ambientes ya desplegados, para este punto requiero un poco de tiempo para investigar a conciencia sobre el punto propuesto y no se si tengo más tiempo, propongo enviar parcialmente lo que tengo y validar con ustedes cuanto tiempo más tengo para la entega completa
 
 # Ejercicio 3
+
+CREATE SCHEMA dw;
+
+CREATE TABLE dw.proveedores_staging (
+    tipo_energia VARCHAR(255),
+    nombre_proveedor VARCHAR(255)
+);
 
 ## Pregunta 1
 ¿Qué experiencias has tenido como ingeniero de datos en AWS? ¿Cuál ha sido el proyecto más retador y por qué?
@@ -150,3 +205,5 @@ En general para AWS se deben tener en cuenta los siguiente elementos para garant
 3. REalizar auditorias regulares y realizar pruebas de penetración, he estado en compañias donde se propone jornada de hackaton con el fin de intentar encontrar huecos de seguridad entre áreas y premian con dinero los hallazgos.
 4. Muy importante trabajar en formación de los colaboradores y en temas culturales frente a un buen manejo de la integridad y seguridad de los datos.
 
+
+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
